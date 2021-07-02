@@ -1,0 +1,1 @@
+export const BUTTON_TOGGLE = "BUTTON/TOGGLE";
