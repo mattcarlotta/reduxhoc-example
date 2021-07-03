@@ -1,5 +1,5 @@
 import type { AnyAction } from "redux";
-import * as types from "./constants";
+import * as types from "../constants";
 
 /**
  * @function toggleReducer

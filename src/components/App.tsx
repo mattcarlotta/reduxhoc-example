@@ -1,9 +1,8 @@
-import type { ConnectedProps, PickReduxState } from "./types.d";
-import ComponentBranch from "@example/reduxhoc";
-import type { ReactElement } from "react";
+import type { ConnectedProps, PickReduxState, ReactElement } from "../types";
 import { connect } from "react-redux";
-import { buttonToggle } from "./actions";
-import logo from "./logo.svg";
+import { buttonToggle } from "../actions";
+import RenderTitle from "./RenderTitle";
+import logo from "../images/logo.svg";
 import "./App.css";
 
 const mapState = ({ toggles }: PickReduxState<"toggles">) => ({
@@ -17,15 +16,6 @@ const mapDispatch = {
 const connector = connect(mapState, mapDispatch);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
-
-const PageTitleA = ({ sub }: string): ReactElement => <h1>Title A {sub}</h1>;
-const PageTitleB = ({ sub }: string): ReactElement => <h1>Title B {sub}</h1>;
-
-const RenderTitle = ComponentBranch(
-  ({ toggles }: PickReduxState<"toggles">) => toggles,
-  PageTitleA,
-  PageTitleB
-);
 
 const App = ({ buttonToggle, toggles }: PropsFromRedux): ReactElement => (
   <div className="app">
